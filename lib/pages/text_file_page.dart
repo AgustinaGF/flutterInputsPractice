@@ -49,6 +49,24 @@ class _TextFieldPageState extends State<TextFieldPage> {
             _query = text;
             setState(() {});
           },
+          decoration: const InputDecoration(
+              label: Text('search...'),
+              hintText: 'placeholder',
+              prefixIcon: Icon(
+                Icons.search_rounded,
+              ),
+              suffixIcon: Icon(Icons.clear),
+              hintStyle: TextStyle(color: Colors.black26),
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 10,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xff00c853),
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black54))),
         ),
       ),
       body: ListView.builder(
