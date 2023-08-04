@@ -40,6 +40,10 @@ class _TextFieldPageState extends State<TextFieldPage> {
 
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
+        backgroundColor: Colors.white,
         title: TextField(
           onChanged: (text) {
             _query = text;
