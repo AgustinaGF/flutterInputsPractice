@@ -48,6 +48,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
         ),
       ),
       body: ListView.builder(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemBuilder: (_, index) {
           final country = filteredList[index];
           return ListTile(
