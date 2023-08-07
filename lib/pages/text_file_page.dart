@@ -10,6 +10,7 @@ class TextFieldPage extends StatefulWidget {
 }
 
 class _TextFieldPageState extends State<TextFieldPage> {
+  final TextEditingController _textEditingController = TextEditingController();
   late final List<Country> _countries;
   String _query = '';
 
@@ -25,6 +26,13 @@ class _TextFieldPageState extends State<TextFieldPage> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     late final List<Country> filteredList;
 
@@ -36,6 +44,9 @@ class _TextFieldPageState extends State<TextFieldPage> {
             (e) => e.name.toLowerCase().contains(_query.toLowerCase()),
           )
           .toList();
+      _textEditingController.addListener(
+        () {},
+      );
     }
 
     return Scaffold(
@@ -45,27 +56,36 @@ class _TextFieldPageState extends State<TextFieldPage> {
         ),
         backgroundColor: Colors.white,
         title: TextField(
+          controller: _textEditingController,
           onChanged: (text) {
             _query = text;
             setState(() {});
           },
-          decoration: const InputDecoration(
-              label: Text('search...'),
+          decoration: InputDecoration(
+              label: const Text('search...'),
               hintText: 'placeholder',
-              prefixIcon: Icon(
+              prefixIcon: const Icon(
                 Icons.search_rounded,
               ),
-              suffixIcon: Icon(Icons.clear),
-              hintStyle: TextStyle(color: Colors.black26),
-              contentPadding: EdgeInsets.symmetric(
+              suffixIcon: IconButton(
+                onPressed: () {
+                  //con esto se va limpiar el campo de texto de busqueda
+                  _textEditingController.text = '';
+                  _query = '';
+                  FocusScope.of(context).unfocus();
+                },
+                icon: const Icon(Icons.clear),
+              ),
+              hintStyle: const TextStyle(color: Colors.black26),
+              contentPadding: const EdgeInsets.symmetric(
                 horizontal: 10,
               ),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Color(0xff00c853),
                 ),
               ),
-              enabledBorder: OutlineInputBorder(
+              enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.black54))),
         ),
       ),
