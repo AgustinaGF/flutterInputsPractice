@@ -31,7 +31,9 @@ and more recently with desktop publishing software like Aldus PageMaker includin
             ),
             CheckboxListTile(
               value: _checked,
+              contentPadding: EdgeInsets.zero,
               controlAffinity: ListTileControlAffinity.leading,
+              visualDensity: VisualDensity.compact,
               title: const Text(
                   'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'),
               onChanged: (value) {
@@ -41,27 +43,6 @@ and more recently with desktop publishing software like Aldus PageMaker includin
                   });
                 }
               },
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  _checked = !_checked;
-                });
-              },
-              child: Row(
-                children: [
-                  Checkbox(
-                    value: _checked,
-                    onChanged: (value) {
-                      if (value != null) {
-                        setState(() {
-                          _checked = value;
-                        });
-                      }
-                    },
-                  ),
-                ],
-              ),
             ),
             Checkbox(
               value: _checked,
