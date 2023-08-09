@@ -39,6 +39,17 @@ and more recently with desktop publishing software like Aldus PageMaker includin
                 }
               },
             ),
+            Checkbox(
+              value: _checked,
+              fillColor: MaterialStateProperty.all(Colors.blue),
+              onChanged: (value) {
+                if (value != null) {
+                  setState(() {
+                    _checked = value;
+                  });
+                }
+              },
+            ),
             MaterialButton(
               onPressed: _checked ? () {} : null,
               child: Text('Next'),

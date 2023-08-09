@@ -17,5 +17,13 @@ ThemeData getThemeData(BuildContext context) {
         borderRadius: BorderRadius.circular(0),
       ),
     ),
+    checkboxTheme: CheckboxThemeData(
+      fillColor: MaterialStateProperty.all(
+        Colors.pinkAccent,
+      ),
+      checkColor: MaterialStateProperty.all(
+        Colors.white,
+      ),
+    ),
   );
 }
