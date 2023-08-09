@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:inputs/constants/countries.dart';
 import 'package:inputs/models/country.dart';
+import 'package:flutter/services.dart';
+import 'package:inputs/utils/capitalize_input_formatter.dart';
 
 class TextFieldPage extends StatefulWidget {
   const TextFieldPage({super.key});
@@ -57,6 +59,14 @@ class _TextFieldPageState extends State<TextFieldPage> {
         backgroundColor: Colors.white,
         title: TextField(
           controller: _textEditingController,
+          inputFormatters: [
+            FilteringTextInputFormatter(
+              //esta expresion regular lo que hace es restringir lo que se puede ingresar en el input
+              RegExp(r'^[a-zA-Z\s]*$'),
+              allow: true,
+            ),
+            CapitalizeInputFormatter(),
+          ],
           onChanged: (text) {
             _query = text;
             setState(() {});
