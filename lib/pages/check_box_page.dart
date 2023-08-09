@@ -29,8 +29,11 @@ It has survived not only five centuries, but also the leap into electronic types
 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
 and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.''',
             ),
-            Checkbox(
+            CheckboxListTile(
               value: _checked,
+              controlAffinity: ListTileControlAffinity.leading,
+              title: const Text(
+                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'),
               onChanged: (value) {
                 if (value != null) {
                   setState(() {
@@ -39,16 +42,31 @@ and more recently with desktop publishing software like Aldus PageMaker includin
                 }
               },
             ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  _checked = !_checked;
+                });
+              },
+              child: Row(
+                children: [
+                  Checkbox(
+                    value: _checked,
+                    onChanged: (value) {
+                      if (value != null) {
+                        setState(() {
+                          _checked = value;
+                        });
+                      }
+                    },
+                  ),
+                ],
+              ),
+            ),
             Checkbox(
               value: _checked,
               fillColor: MaterialStateProperty.all(Colors.blue),
-              onChanged: (value) {
-                if (value != null) {
-                  setState(() {
-                    _checked = value;
-                  });
-                }
-              },
+              onChanged: null,
             ),
             MaterialButton(
               onPressed: _checked ? () {} : null,
