@@ -49,6 +49,18 @@ and more recently with desktop publishing software like Aldus PageMaker includin
               fillColor: MaterialStateProperty.all(Colors.blue),
               onChanged: null,
             ),
+            const Divider(),
+            SwitchListTile(
+                value: _checked,
+                //Esto es para que el color que se cambio en el track se vea una diferencia cuando esta inactivo
+                inactiveTrackColor: Colors.blueGrey.shade100,
+                title: const Text('push notification'),
+                onChanged: (value) {
+                  setState(() {
+                    _checked = value;
+                  });
+                }),
+            const Divider(),
             MaterialButton(
               onPressed: _checked ? () {} : null,
               child: Text('Next'),

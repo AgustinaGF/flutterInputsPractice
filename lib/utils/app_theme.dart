@@ -30,5 +30,8 @@ ThemeData getThemeData(BuildContext context) {
         Colors.pinkAccent,
       ),
     ),
+    switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.all(Colors.amber),
+        trackColor: MaterialStateProperty.all(Colors.amber)),
   );
 }
