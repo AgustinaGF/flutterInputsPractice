@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inputs/pages/app_routes.dart';
+import 'package:inputs/app_routes.dart';
 import 'package:inputs/utils/app_theme.dart';
 
 void main() {
