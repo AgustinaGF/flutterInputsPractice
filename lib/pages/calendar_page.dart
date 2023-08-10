@@ -17,6 +17,8 @@ class _CalendarPageState extends State<CalendarPage> {
           initialDate: DateTime(2000),
           firstDate: DateTime(1900),
           lastDate: DateTime.now(),
+          //esto hace que inicialmente nos muestre los años
+          initialCalendarMode: DatePickerMode.year,
           onDateChanged: (date) {},
         ),
       ),
