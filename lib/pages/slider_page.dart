@@ -9,6 +9,7 @@ class SliderPage extends StatefulWidget {
 
 class _SliderPageState extends State<SliderPage> {
   double _value = 0;
+  double _value2 = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,20 @@ class _SliderPageState extends State<SliderPage> {
         width: double.infinity,
         child: Column(
           children: [
+            Slider(
+              value: _value2,
+              label: _value2.toString(),
+              min: 0,
+              max: 10,
+              divisions: 10,
+              onChanged: (value) {
+                setState(
+                  () {
+                    _value2 = value.floorToDouble();
+                  },
+                );
+              },
+            ),
             Row(
               children: [
                 SizedBox(

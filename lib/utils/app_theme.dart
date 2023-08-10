@@ -31,7 +31,16 @@ ThemeData getThemeData(BuildContext context) {
       ),
     ),
     switchTheme: SwitchThemeData(
-        thumbColor: MaterialStateProperty.all(Colors.amber),
-        trackColor: MaterialStateProperty.all(Colors.amber)),
+      thumbColor: MaterialStateProperty.all(Colors.amber),
+      trackColor: MaterialStateProperty.all(Colors.amber),
+    ),
+    sliderTheme: SliderThemeData(
+        //esta es la altura del track
+        trackHeight: 15,
+        activeTrackColor: Colors.pinkAccent,
+        thumbColor: Colors.pink,
+        overlayColor: Colors.pink.withOpacity(0.1),
+        valueIndicatorColor: Colors.redAccent,
+        inactiveTickMarkColor: Colors.white54),
   );
 }
