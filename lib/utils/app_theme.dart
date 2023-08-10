@@ -25,5 +25,10 @@ ThemeData getThemeData(BuildContext context) {
         Colors.white,
       ),
     ),
+    radioTheme: RadioThemeData(
+      fillColor: MaterialStateProperty.all(
+        Colors.pinkAccent,
+      ),
+    ),
   );
 }

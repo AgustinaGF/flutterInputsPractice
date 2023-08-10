@@ -11,6 +11,18 @@ class _RadioPageState extends State<RadioPage> {
   String? _better;
   String? _gender;
 
+  void _onBetterChanged(String? value) {
+    setState(() {
+      _better = value;
+    });
+  }
+
+  void _onGenderChanged(String? value) {
+    setState(() {
+      _gender = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,77 +32,40 @@ class _RadioPageState extends State<RadioPage> {
           padding: const EdgeInsets.all(15),
           children: [
             const Text('Witch is better'),
-            Row(
-              children: [
-                Radio<String>(
-                  value: 'flutter',
-                  groupValue: _better,
-                  onChanged: (value) {
-                    setState(() {
-                      _better = value;
-                    });
-                  },
-                ),
-                const Text('flutter')
-              ],
+            RadioListTile<String>(
+                value: 'flutter',
+                groupValue: _better,
+                title: const Text('flutter'),
+                contentPadding: EdgeInsets.zero,
+                onChanged: _onBetterChanged),
+            RadioListTile<String>(
+                value: 'react native',
+                groupValue: _better,
+                contentPadding: EdgeInsets.zero,
+                title: const Text('react native'),
+                onChanged: _onBetterChanged),
+            const Divider(),
+            const Text('What is your gender?'),
+            RadioListTile<String>(
+              value: 'male',
+              groupValue: _gender,
+              contentPadding: EdgeInsets.zero,
+              onChanged: _onGenderChanged,
+              title: const Text('male'),
             ),
-            Row(
-              children: [
-                Radio<String>(
-                  value: 'react native',
-                  groupValue: _better,
-                  onChanged: (value) {
-                    setState(() {
-                      _better = value;
-                    });
-                  },
-                ),
-                Text('react native')
-              ],
+            RadioListTile<String>(
+              value: 'female',
+              groupValue: _gender,
+              onChanged: _onGenderChanged,
+              contentPadding: EdgeInsets.zero,
+              title: const Text('female'),
             ),
-            Divider(),
-            Text('What is your gender?'),
-            Row(
-              children: [
-                Radio<String>(
-                  value: 'male',
-                  groupValue: _gender,
-                  onChanged: (value) {
-                    setState(() {
-                      _gender = value;
-                    });
-                  },
-                ),
-                const Text('male')
-              ],
-            ),
-            Row(
-              children: [
-                Radio<String>(
-                  value: 'female',
-                  groupValue: _gender,
-                  onChanged: (value) {
-                    setState(() {
-                      _gender = value;
-                    });
-                  },
-                ),
-                const Text('female')
-              ],
-            ),
-            Row(
-              children: [
-                Radio<String>(
-                  value: 'other',
-                  groupValue: _gender,
-                  onChanged: (value) {
-                    setState(() {
-                      _gender = value;
-                    });
-                  },
-                ),
-                const Text('other')
-              ],
+            RadioListTile<String>(
+              value: 'other',
+              groupValue: _gender,
+              onChanged: _onGenderChanged,
+              contentPadding: EdgeInsets.zero,
+              title: const Text('other'),
             ),
           ],
         ),
