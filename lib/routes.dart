@@ -5,4 +5,5 @@ class Routes {
   static const keyboardTypes = '/keyboard-types';
   static const checkbox = '/check-box';
   static const radio = '/radio';
+  static const slider = '/slider';
 }
