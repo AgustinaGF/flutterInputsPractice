@@ -19,17 +19,30 @@ class _SliderPageState extends State<SliderPage> {
         width: double.infinity,
         child: Column(
           children: [
-            Slider(
-              value: _value,
-              label: _value.toString(),
-              min: 0,
-              max: 100,
-              divisions: 100,
-              onChanged: (value) {
-                setState(() {
-                  _value = value.floorToDouble();
-                });
-              },
+            Row(
+              children: [
+                SizedBox(
+                  height: 200,
+                  width: 100,
+                  child: RotatedBox(
+                    quarterTurns: 3,
+                    child: Slider(
+                      value: _value,
+                      label: _value.toString(),
+                      min: 0,
+                      max: 100,
+                      divisions: 100,
+                      onChanged: (value) {
+                        setState(
+                          () {
+                            _value = value.floorToDouble();
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
             )
           ],
         ),
