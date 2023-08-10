@@ -6,4 +6,5 @@ class Routes {
   static const checkbox = '/check-box';
   static const radio = '/radio';
   static const slider = '/slider';
+  static const calendar = '/calendar';
 }
